@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <form action="#" th:action="@{/sample}" th:object="${message}" method="post">
+      <div>
+        <p>メッセージを入力してください。</p>
+        <input type="text" class="form-control" th:field="*{message}" />
+        <button type="submit" class="btn btn-default">確認</button>
+      </div>
+    </form>
+    <table border="1">
+        <tr><th>message</th></tr>
+        <tr th:each="sampleTable : ${messages}">
+            <td th:text="${sampleTable.text}"></td>
+        </tr>
+    </table>
+</body>
+</html>
