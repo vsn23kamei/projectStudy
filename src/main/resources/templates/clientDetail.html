@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <form action="#" th:action="@{/sample}" th:object="${clientData}" method="post">
+      <div>
+        <p>クライアント情報を入力してください。</p>
+        <label>クライアント名:</label><input type="text" class="form-control" th:field="*{clientName}" /><br/>
+        <label>公開フラグ:</label><input type="checkbox" th:field="*{openFlag}" /><br/>
+        <label>ユーザ名アクセス権:</label><input type="checkbox" th:field="*{userNameFlg}" /><br/>
+        <label>住所アクセス権:</label><input type="checkbox" th:field="*{addressFlg}" /><br/>
+        <label>電話番号アクセス権:</label><input type="checkbox" th:field="*{telNumberFlg}" /><br/>
+        <label>メールアドレスアクセス権:</label><input type="checkbox" th:field="*{mailAddressFlg}" /><br/>
+        <label>ユーザ登録日アクセス権:</label><input type="checkbox" th:field="*{addTimeStampFlg}" /><br/>
+        <label>最終ログイン日時アクセス権:</label><input type="checkbox" th:field="*{lastLoginTimeFlg}" /><br/>
+        <label>リダイレクト先URL:</label><input type="text" class="form-control" th:field="*{redirectUrl}" /><br/>
+        <label>備考:</label><input type="text" class="form-control" th:field="*{memo}" /><br/>
+        <button type="submit" class="btn btn-default">確認</button>
+      </div>
+    </form>
+</body>
+</html>

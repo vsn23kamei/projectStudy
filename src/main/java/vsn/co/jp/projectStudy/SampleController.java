@@ -3,6 +3,7 @@ package vsn.co.jp.projectStudy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -33,15 +34,16 @@ public class SampleController {
      * @param model 画面に返却する値を設定します。
      * @return
      */
-        @RequestMapping("sample")
-        public String samleCont(@ModelAttribute("message")Message message, Model model) {
-            
-            // サービスクラスの登録メソッドを呼び出しています。
-            sampleService.insert(message);
-            
-            // サービスクラスのselectメソッドを呼び出しています。
-            model.addAttribute("messages", sampleService.findAll());
-            
-            return "sample";
-        }
+    @RequestMapping("sample")
+    public String samleCont(@ModelAttribute("message") Message message,
+            Model model, BindingResult valid) {
+
+        // サービスクラスの登録メソッドを呼び出しています。
+        sampleService.insert(message);
+
+        // サービスクラスのselectメソッドを呼び出しています。
+        model.addAttribute("messages", sampleService.findAll());
+
+        return "sample";
+    }
 }
