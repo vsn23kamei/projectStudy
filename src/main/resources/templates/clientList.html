@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>client name</th>
+            <th>client code</th>
+        </tr>
+        <tr th:each="clientList : ${clientList}">
+            <td th:text="${clientList.client_name}"></td>
+            <td><a th:href="@{'/clientDetail/detaiil/' + ${clientList.client_id}}"><p th:text="${clientList.client_code}" ></p></a></td>
+        </tr>
+    </table>
+    <a href="/clientDetail/new/">
+        <button type="button" >新規登録</button>
+    </a>
+</body>
+</html>
