@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://localhost:8080/clientDetail/new/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Insert title here</title>
+</head>
+<body>
+  <form action="http://localhost:8080/clientDetail/addClient/" method="post">
+    <div>
+      <p>クライアント情報を入力してください。</p>
+      <div>
+        <input type="hidden" class="form-control" id="clientId" name="clientId" value=""> 
+      </div>
+      <div class="form-group">
+        <label>クライアント名:</label>
+        <input type="text" class="form-control" id="clientName" name="clientName" value=""> 
+        
+      </div>
+      <div class="form-group">
+        <label>クライアントコード:</label>
+        <input type="text" class="form-control" id="clientCode" name="clientCode" value="">
+        
+      </div>
+      <div class="form-group">
+        <label>公開フラグ:</label> <input type="checkbox" id="openFlag1" name="openFlag" value="true"><input type="hidden" name="_openFlag" value="on">
+      </div>
+      <div class="form-group">
+        <label>ユーザ名アクセス権:</label> <input type="checkbox" id="userNameFlg1" name="userNameFlg" value="true"><input type="hidden" name="_userNameFlg" value="on">
+      </div>
+      <div class="form-group">
+        <label>住所アクセス権:</label> <input type="checkbox" id="addressFlg1" name="addressFlg" value="true"><input type="hidden" name="_addressFlg" value="on">
+      </div>
+      <div class="form-group">
+        <label>電話番号アクセス権:</label> <input type="checkbox" id="telNumberFlg1" name="telNumberFlg" value="true"><input type="hidden" name="_telNumberFlg" value="on">
+      </div>
+      <div class="form-group">
+        <label>メールアドレスアクセス権:</label> <input type="checkbox" id="mailAddressFlg1" name="mailAddressFlg" value="true"><input type="hidden" name="_mailAddressFlg" value="on">
+      </div>
+      <div class="form-group">
+        <label>ユーザ登録日アクセス権:</label> <input type="checkbox" id="addTimeStampFlg1" name="addTimeStampFlg" value="true"><input type="hidden" name="_addTimeStampFlg" value="on">
+      </div>
+      <div class="form-group">
+        <label>最終ログイン日時アクセス権:</label> <input type="checkbox" id="lastLoginTimeFlg1" name="lastLoginTimeFlg" value="true"><input type="hidden" name="_lastLoginTimeFlg" value="on">
+      </div>
+      <div class="form-group">
+        <label>リダイレクト先URL:</label>
+        <input type="text" class="form-control" id="redirectUrl" name="redirectUrl" value="">
+        
+      </div>
+      <div class="form-group">
+        <label>備考:</label>
+        <input type="text" class="form-control" id="memo" name="memo" value="">
+      </div>
+      <a href="detail.html">
+        <button type="button" class="btn btn-default">確認</button>
+      </a>
+      <a href="list.html">
+        <button type="button">戻る</button>
+      </a>
+    </div>
+  </form>
+
+</body></html>

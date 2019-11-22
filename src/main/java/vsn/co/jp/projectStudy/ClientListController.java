@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import vsn.co.jp.projectStudy.model.LoginData;
 import vsn.co.jp.projectStudy.service.ClientListService;
 
 /**
@@ -19,9 +20,14 @@ public class ClientListController {
      */
     @Autowired
     ClientListService service;
+
+    @Autowired
+    LoginData loginData;
     
     @RequestMapping("clientList")
-    public String clientListCoontrol (Model mode) {
+    public String clientListCoontrol (Model model) {
+        
+        service.execute(null, model, loginData, null);
         
         return "clientList";
     }
