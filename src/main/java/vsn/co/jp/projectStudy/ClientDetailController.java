@@ -40,8 +40,7 @@ public class ClientDetailController {
         Client client = new Client();
         client.setClientId(clientId);
 
-        String returnURI = detailService.execute(client, model, loginData,
-                null);
+        String returnURI = detailService.execute(client, model, loginData, null);
 
         return returnURI;
     }
