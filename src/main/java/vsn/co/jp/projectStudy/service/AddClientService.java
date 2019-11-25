@@ -37,7 +37,7 @@ public class AddClientService extends AbstractLoginService {
      */
     @Override
     public String preExecute(RequestBase request, Model model,
-            LoginData loginData, BindingResult valid) {
+            LoginData loginData, BindingResult valid) throws Exception {
 
         super.preExecute(request, model, loginData, valid);
 
