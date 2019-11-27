@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>client detail</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body　class="is-preload">
+  <header id="header">
+    <form action="#" th:action="@{/clientDetail/addClient/}" th:object="${clientData}" method="post">
+      <div>
+        <p>クライアント情報を入力してください。</p>
+        <div>
+          <input type="hidden" class="form-control" th:field="*{clientId}" />
+        </div>
+        <div class="form-group" th:classappend="${#fields.hasErrors('clientName')}? has-error">
+          <label>クライアント名　:　<input type="text" class="form-control" th:field="*{clientName}" style=" width:200px; height:30px; " /></label>
+          <span class="text-danger" th:if="${#fields.hasErrors('clientName')}" th:errors="*{clientName}"></span>
+        </div>
+        <div class="form-group" th:classappend="${#fields.hasErrors('clientCode')}? has-error">
+          <label>クライアントコード　:　<input type="text" class="form-control" th:field="*{clientCode}" style=" width:200px; height:30px; " /></label>
+          <span class="text-danger" th:if="${#fields.hasErrors('clientCode')}" th:errors="*{c lientCode}"></span>
+        </div>
+        <div class="form-group">
+          <label>公開フラグ　:　<input type="checkbox" th:field="*{openFlag}" /></label>
+        </div>
+        <div class="form-group">
+          <label>ユーザ名アクセス権　:　<input type="checkbox" th:field="*{userNameFlg}" /></label>
+        </div>
+        <div class="form-group">
+          <label>住所アクセス権　:　<input type="checkbox" th:field="*{addressFlg}" /></label>
+        </div>
+        <div class="form-group">
+          <label>電話番号アクセス権　:　<input type="checkbox" th:field="*{telNumberFlg}" /></label>
+        </div>
+        <div class="form-group">
+          <label>メールアドレスアクセス権　:　<input type="checkbox" th:field="*{mailAddressFlg}" /></label>
+        </div>
+        <div class="form-group">
+          <label>ユーザ登録日アクセス権　:　<input type="checkbox" th:field="*{addTimeStampFlg}" /></label>
+        </div>
+        <div class="form-group">
+          <label>最終ログイン日時アクセス権　:　<input type="checkbox" th:field="*{lastLoginTimeFlg}" /></label>
+        </div>
+        <div class="form-group" th:classappend="${#fields.hasErrors('redirectUrl')}? has-error">
+          <label>リダイレクト先URL　:　<input type="text" class="form-control" th:field="*{redirectUrl}" style=" width:500px; height:30px; " /></label>
+          <span class="text-danger" th:if="${#fields.hasErrors('redirectUrl')}" th:errors="*{redirectUrl}"></span>
+        </div>
+        <div class="form-group" th:classappend="${#fields.hasErrors('redirectUrl')}? has-error">
+          <label>備考　:　<input type="text" class="form-control" th:field="*{memo}" style=" width:500px; height:30px; " /></label>
+        </div>
+        <br/>
+        <button type="submit" class="btn btn-default">確認</button>
+        <a href="/clientList/">
+          <button type="button" >戻る</button>
+        </a>
+      </div>
+    </form>
+  </header>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

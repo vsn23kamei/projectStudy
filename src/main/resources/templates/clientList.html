@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>client list</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body　class="is-preload">
+  <header id="header" overflow-x="auto">
+      <table>
+          <tr>
+              <th>client name</th><th>client code</th>
+          </tr>
+          <tr th:each="clientList : ${clientList}">
+              <td th:text="${clientList.client_name}"></td>
+              <td><a th:href="@{'/clientDetail/detaiil/' + ${clientList.client_id}}"><p th:text="${clientList.client_code}" ></p></a></td>
+          </tr>
+      </table>
+        <br/>
+        <a href="/clientDetail/new/">
+          <button type="button" >新規登録</button>
+        </a>
+  </header>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
