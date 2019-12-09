@@ -113,8 +113,8 @@ public class AuthenticationService extends AbstractService {
                 .setLast_login_time(new Timestamp(System.currentTimeMillis()));
         userDetailRepo.save(userDetail);
 
-        return "redirect:" + clientDetail.getRedirect_address() + "/"
-                + authCode;
+        model.addAttribute("authCode", authCode);
+        return "redirect:" + clientDetail.getRedirect_address();
     }
 
 }

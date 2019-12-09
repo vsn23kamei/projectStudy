@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import vsn.co.jp.projectStudy.model.Client;
 import vsn.co.jp.projectStudy.model.LoginData;
@@ -58,9 +59,11 @@ public class UserController {
     @RequestMapping("auth")
     public String authUser(
             @Valid @ModelAttribute("loginRequest") LoginRequest loginRequest,
-            BindingResult valid, Model model) {
+            BindingResult valid, RedirectAttributes attributes, Model model) {
 
-        return authService.execute(loginRequest, model, loginData, valid);
+        String redirect = authService.execute(loginRequest, model, loginData, valid);
+        attributes.addAttribute("authCode", model.getAttribute("authCode"));
+        return redirect;
     }
 
     @RequestMapping("new")

@@ -44,7 +44,6 @@ public class ClientListService  extends AbstractLoginService{
     @Override
     public String postExecute(RequestBase request, Model model,
             LoginData loginData, BindingResult valid) {
-        // NOP
-        return SUCCESS_STR;
+        return "clientList";
     }
 }

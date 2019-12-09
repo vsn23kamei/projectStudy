@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import vsn.co.jp.projectStudy.model.Message;
 import vsn.co.jp.projectStudy.service.SampleService;
@@ -48,8 +48,8 @@ public class SampleController {
         return "sample";
     }
     
-    @RequestMapping("loginCheck/{authCode}")
-    public String loginCheck(@PathVariable String authCode, Model model) {
+    @RequestMapping("loginCheck/")
+    public String loginCheck(@RequestParam("authCode") String authCode, Model model) {
         
         model.addAttribute("authCode", authCode);
         
