@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ログイン確認</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript" ></script>
+<script type="text/javascript">
+    $( function() {
+        $( '#ajax-button1' ) .click(
+        function() {
+            var hostUrl= 'http://localhost:8080/authorization/authCode/';
+            var param1 = document.getElementById('code').innerHTML;
+            var JSONdata = {client_code : 'sample', auth_code : param1 };
+            $.ajax({
+                url: hostUrl,
+                type:'POST',
+                contentType: 'application/JSON',
+                dataType : 'JSON',
+                scriptCharset: 'utf-8',
+                data : JSON.stringify(JSONdata),
+                timeout:10000,
+                success : function(data) {
+                    // Success
+                    alert("success");
+                    alert(JSON.stringify(data));
+                    document.getElementById('code').innerHTML = data.code;
+                },
+                error : function(data) {
+                    // Error
+                    alert("error");
+                    alert(JSON.stringify(data));
+                    $("#response").html(JSON.stringify(data));
+                }
+            })
+        });
+    } );
+    $( function() {
+        $( '#ajax-button2' ) .click(
+        function() {
+            var hostUrl= 'http://localhost:8080/authorization/accessToken/onlyAuth/';
+            var param1 = document.getElementById('code').innerHTML;
+            var JSONdata = {client_code : 'sample', accessToken : param1 };
+            $.ajax({
+                url: hostUrl,
+                type:'POST',
+                contentType: 'application/JSON',
+                dataType : 'JSON',
+                scriptCharset: 'utf-8',
+                data : JSON.stringify(JSONdata),
+                timeout:10000,
+                success : function(data) {
+                    // Success
+                    alert("success");
+                    alert(JSON.stringify(data));
+                },
+                error : function(data) {
+                    // Error
+                    alert("error");
+                    alert(JSON.stringify(data));
+                    $("#response").html(JSON.stringify(data));
+                }
+            })
+        });
+    } );
+    $( function() {
+        $( '#ajax-button3' ) .click(
+        function() {
+            var hostUrl= 'http://localhost:8080/authorization/accessToken/getData/';
+            var param1 = document.getElementById('code').innerHTML;
+            var JSONdata = {client_code : 'sample', accessToken : param1 };
+            $.ajax({
+                url: hostUrl,
+                type:'POST',
+                contentType: 'application/JSON',
+                dataType : 'JSON',
+                scriptCharset: 'utf-8',
+                data : JSON.stringify(JSONdata),
+                timeout:10000,
+                success : function(data) {
+                    // Success
+                    alert("success");
+                    alert(JSON.stringify(data));
+                },
+                error : function(data) {
+                    // Error
+                    alert("error");
+                    alert(JSON.stringify(data));
+                    $("#response").html(JSON.stringify(data));
+                }
+            })
+        });
+    } );
+</script>
+</head>
+<body class="is-preload">
+    <p th:text="${authCode}" id="code"></p>
+    <p><input type="button" id="ajax-button1" value="auth" /></p>
+    <p><input type="button" id="ajax-button2" value="accesstoken" /></p>
+    <p><input type="button" id="ajax-button3" value="getData" /></p>
+</body>
+</html>

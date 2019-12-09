@@ -19,10 +19,11 @@ public interface ClientMasterRepository
 
     @Query(value = "SELECT m.client_id AS client_id,d.client_name AS client_name,m.client_code AS client_code FROM client_master m , client_detail d WHERE m.CLIENT_ID = d.CLIENT_ID", nativeQuery = true)
     public List<Map<String, Object>> findAllCliant();
-    
+
     @Query(value = "SELECT client_id, client_code FROM client_master WHERE client_code = :clientCode", nativeQuery = true)
     public List<ClientMaster> findByClientCodeIs(String clientCode);
-    
+
     @Query(value = "SELECT m.client_id AS \"clientId\", m.client_code AS\"clientCode\", d.client_name AS \"clientName\" FROM client_master m , client_detail d WHERE m.client_id = d.client_id AND m.client_code = :clientCode", nativeQuery = true)
-    public List<Map<String, Object>> findCliantNameByClientCodeIs(String clientCode);
+    public List<Map<String, Object>> findCliantNameByClientCodeIs(
+            String clientCode);
 }

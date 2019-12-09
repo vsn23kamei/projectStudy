@@ -3,6 +3,8 @@ package vsn.co.jp.projectStudy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import vsn.co.jp.projectStudy.model.LoginData;
@@ -24,8 +26,12 @@ public class ClientListController {
     @Autowired
     LoginData loginData;
     
-    @RequestMapping("clientList")
-    public String clientListCoontrol (Model model) {
+    @RequestMapping("clientList/{authCode}")
+    public String clientListCoontrol (@PathVariable String authCode, Model model) {
+        
+        if (!StringUtils.isEmpty(authCode)) {
+            model.addAttribute("authCode", authCode);
+        }
         
         service.execute(null, model, loginData, null);
         
