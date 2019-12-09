@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <title>Insert title here</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link href="/assets/css/main.css" th:href="@{/assets/css/main.css}" rel="stylesheet"></link>
 </head>
-<body>
+<body class="is-preload">
     <form action="#" th:action="@{/sample}" th:object="${message}" method="post">
       <div>
         <p>メッセージを入力してください。</p>
-        <input type="text" class="form-control" th:field="*{message}" />
+        <input type="text" class="form-control" th:field="*{message}" style=" width:500px; height:30px; " /><br/>
         <button type="submit" class="btn btn-default">確認</button>
       </div>
     </form>
+    <br/>
     <table border="1">
         <tr><th>message</th></tr>
         <tr th:each="sampleTable : ${messages}">
             <td th:text="${sampleTable.text}"></td>
         </tr>
     </table>
+  <script src="/assets/js/main.js" th:src="@{/assets/js/main.js}"></script>
 </body>
 </html>

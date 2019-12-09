@@ -12,7 +12,7 @@ public abstract class AbstractService {
 
     public static final String SUCCESS_STR = "success";
 
-    public static final String FAILURE_STR = "fail";
+    public static final String FAILURE_STR = "error";
 
     protected final static Logger logger = LoggerFactory
             .getLogger(AbstractService.class);
@@ -20,6 +20,8 @@ public abstract class AbstractService {
     public String execute(RequestBase request, Model model, LoginData loginData,
             BindingResult valid) {
         String result = FAILURE_STR;
+        
+        logger.info("started by" + this.toString());
 
         try {
 
@@ -38,7 +40,10 @@ public abstract class AbstractService {
         } catch (Exception e) {
             // TODO ログを出す
             logger.error("不測の事態");
-            logger.trace(e.getMessage());
+            logger.error(e.getMessage());
+            for (StackTraceElement st : e.getStackTrace()) {
+                logger.debug(st.toString());
+            }
             result = FAILURE_STR;
         }
         return result;
