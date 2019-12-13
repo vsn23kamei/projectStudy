@@ -20,9 +20,9 @@ import vsn.co.jp.projectStudy.model.RequestBase;
 
 public abstract class AbstractLoginService extends AbstractService {
 
-    String AuthUrlString = "http://localhost:8080/authorization/authCode/";
+    String AuthUrlString = "http://localhost:8080/projectStudy/authorization/authCode/";
     
-    String AccessTokenUrlString = "http://localhost:8080/authorization/accessToken/onlyAuth/";
+    String AccessTokenUrlString = "http://localhost:8080/projectStudy/authorization/accessToken/onlyAuth/";
     /**
      * 
      */

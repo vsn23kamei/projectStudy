@@ -29,7 +29,8 @@ public class ClientListController {
     LoginData loginData;
 
     @RequestMapping("clientList/")
-    public String clientListCoontrol(@RequestParam("authCode") String authCode,
+    public String clientListCoontrol(
+            @RequestParam(name = "authCode", required = false) String authCode,
             Model model) {
 
         if (!StringUtils.isEmpty(authCode)) {
