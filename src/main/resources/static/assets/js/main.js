@@ -109,6 +109,8 @@
 					$submit = document.querySelectorAll('#signup-form input[type="submit"]')[0],
 					$message;
 
+				if (!$form)
+					return;
 			// Bail if addEventListener isn't supported.
 				if (!('addEventListener' in $form))
 					return;
